@@ -219,9 +219,9 @@ class Apt(PackageManager):
             packages = [packages]
 
         extra_flags = kw.pop('extra_remove_flags', None)
+        # Removed --force-yes since debian does not like it.
         cmd = self.executable + [
             '-f',
-            '--force-yes',
             'remove'
         ]
         if extra_flags:
